@@ -1,4 +1,13 @@
 package page;
+
+import com.codeborne.selenide.SelenideElement;
+
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.open;
+
 public class WebPage {
     private SelenideElement buyButton = $$(".button__text").find(exactText("Купить"));
     private SelenideElement buyCreditButton = $$(".button__text").find(exactText("Купить в кредит"));
