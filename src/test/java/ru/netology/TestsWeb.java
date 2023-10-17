@@ -147,7 +147,7 @@ public class TestsWeb {
 
 
     @Test
-    @DisplayName("Оплата тура карте с истекшим сроком действия (месяц)")
+    @DisplayName("Оплата тура по карте с истекшим сроком действия (месяц)")
     void testCashLastMonth() {
         webPage.buyWithCash();
         webPage.setCardNumber(DataHelper.getCardNumberApproved());
@@ -466,7 +466,7 @@ public class TestsWeb {
     }
 
     @Test
-    @DisplayName("Оплата тура с незаполнеными полями")
+    @DisplayName("Оплата тура с не заполненными полями")
     void testCashEmptyFields() {
         webPage.buyWithCash();
         webPage.setCardNumber(DataHelper.getCardNumberEmpty());
@@ -480,7 +480,7 @@ public class TestsWeb {
     }
 
     @Test
-    @DisplayName("Кредит за тур с незаполнеными полями")
+    @DisplayName("Кредит за тур с не заполненными полями")
     void testCreditEmptyFields() {
         webPage.buyInCredit();
         webPage.setCardNumber(DataHelper.getCardNumberEmpty());
