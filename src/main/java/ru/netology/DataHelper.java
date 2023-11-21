@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class DataHelper {
-
     private static final Faker faker = new Faker(new Locale("en"));
 
     public static String getCardNumberApproved() {
@@ -25,10 +24,9 @@ public class DataHelper {
     public static String getCardNumberNotFilled() {
         int randomNumberLength = faker.random().nextInt(16);
         return faker.number().digits(randomNumberLength);
-
     }
 
-    public static String getCardNumberEmpty() {
+    public static String getEmptyFieldValue() {
         return "";
     }
 
@@ -39,21 +37,14 @@ public class DataHelper {
     }
 
     public static String getCurrentYear() {
+        return getYearOffset(0);
+    }
+
+    public static String getYearOffset(int offset) {
         LocalDate currentDate = LocalDate.now();
         int currentYear = currentDate.getYear();
-        return String.format("%02d", currentYear % 100);
-    }
-
-    public static String getCurrentYearPlus6() {
-        int currentYear = Integer.parseInt(getCurrentYear());
-        int yearPlus6 = currentYear + 6;
-        return String.format("%02d", yearPlus6 % 100);
-    }
-
-    public static String getPreviousYear() {
-        int currentYear = Integer.parseInt(getCurrentYear());
-        int previousYear = currentYear - 1;
-        return String.format("%02d", previousYear % 100);
+        int modifiedYear = currentYear + offset;
+        return String.format("%02d", modifiedYear % 100);
     }
 
     public static String getMonth() {
@@ -62,18 +53,6 @@ public class DataHelper {
 
     public static String getInvalidMonth() {
         return "00";
-    }
-
-    public static String getEmptyMonth() {
-        return "";
-    }
-
-    public static String getEmptyYear() {
-        return "";
-    }
-
-    public static String getYear() {
-        return String.format("%02d", faker.number().numberBetween(24, 29));
     }
 
     public static String getOwner() {
@@ -89,9 +68,8 @@ public class DataHelper {
     }
 
     public static String getEmptyOwner() {
-        return "";
+        return getEmptyFieldValue();
     }
-
 
     public static String getCvc() {
         return faker.number().digits(3);
@@ -106,6 +84,6 @@ public class DataHelper {
     }
 
     public static String getEmptyCvc() {
-        return "";
+        return getEmptyFieldValue();
     }
 }

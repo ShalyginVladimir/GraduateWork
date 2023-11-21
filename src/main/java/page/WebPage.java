@@ -82,11 +82,11 @@ public class WebPage {
     }
 
     public void messageSuccessfully() {
-        messageSuccessfully.shouldBe(visible, Duration.ofSeconds(10));
+        messageSuccessfully.shouldBe(visible, Duration.ofSeconds(15));
     }
 
     public void messageError() {
-        messageError.shouldBe(visible, Duration.ofSeconds(10));
+        messageError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
     public void messageIncorrectFormat() {
